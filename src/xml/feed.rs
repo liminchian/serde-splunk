@@ -6,25 +6,25 @@ pub struct Parser {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Entry {
+struct Entry {
     content: Content,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Content {
+struct Content {
     #[serde(rename = "@type")]
     content_type: String,
     dict: NestedDict,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct NestedDict {
+struct NestedDict {
     #[serde(rename = "key")]
     object: Vec<Object>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Object {
+struct Object {
     #[serde(rename = "@name")]
     name: String,
     #[serde(rename = "$value")]
@@ -32,7 +32,7 @@ pub struct Object {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub enum Value {
+enum Value {
     #[serde(rename = "$text")]
     String(String),
     #[serde(rename = "dict")]

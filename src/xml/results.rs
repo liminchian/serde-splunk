@@ -6,7 +6,7 @@ pub struct Parser {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-pub struct Results {
+struct Results {
     field: Vec<Field>,
 }
 

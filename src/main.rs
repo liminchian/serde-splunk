@@ -1,6 +1,6 @@
 use anyhow::Result;
 
-use serde_splunk::time_parser::Parser;
+use serde_splunk::prelude::*;
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -13,7 +13,8 @@ async fn main() -> Result<()> {
         </response>
         "#;
 
-    let resp = quick_xml::de::from_str::<Parser>(xml)?;
+    let resp = quick_xml::de::from_str::<TimeParser>(xml)?;
+
     println!("{:?}", resp);
 
     Ok(())
